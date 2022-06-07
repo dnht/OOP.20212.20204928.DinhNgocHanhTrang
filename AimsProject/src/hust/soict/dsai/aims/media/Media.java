@@ -1,15 +1,14 @@
 package hust.soict.dsai.aims.media;
-
 import java.time.LocalDate;
 
-public class Media {
+public abstract class Media {
 	// add fields
-	private int id;
-	private String title;
-	private String category;
-	private float cost;
-	private int nbMedia = 0;
-	private LocalDate dateAdded;
+	protected int id;
+	protected String title;
+	protected String category;
+	protected float cost;
+	protected static int nbMedia = 0;
+	protected LocalDate dateAdded;
 	
 	// accessor methods
 	public int getId() {
@@ -39,7 +38,6 @@ public class Media {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 	public void setCategory(String category) {
 		this.category = category;
 	}
@@ -51,16 +49,15 @@ public class Media {
 	public void setDateAdded(LocalDate dateAdded) {
 		this.dateAdded = dateAdded;
 	}
-	
 	//extend 
 	public class Book extends Media{
 		
 	}
 	public class DigitalVideoDisc extends Media{
+	}
+	public class Disc extends Media{
 		
 	}
-	public Media() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 }
