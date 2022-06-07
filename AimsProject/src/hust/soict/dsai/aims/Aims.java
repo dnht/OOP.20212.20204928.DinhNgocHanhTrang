@@ -29,10 +29,16 @@ public class Aims {
 		
 		//Check removeDigitalVideoDisc method
 		anOrder.removeMedia(dvd3);
-		//memory Daemon
+		
+		/*memory Daemon
 		MemoryDaemon md = new MemoryDaemon();
 		md.run();
-		
+		*/
+		//thread
+		Thread md = new Thread(new MemoryDaemon());
+		md.setDaemon(true);
+		md.start();
+
 	}
 	// Main Menu
 	public static void showMenu() {
