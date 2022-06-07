@@ -2,13 +2,13 @@ package hust.soict.dsai.aims.media;
 
 import java.time.LocalDate;
 
-public class DigitalVideoDisc {
+public class DigitalVideoDisc extends Disc implements Playable {
 	public DigitalVideoDisc(String title) {
 		super();
 		this.title = title;
 		this.dateAdded = LocalDate.now(); 
-		this.id = nbDigitalVideoDisc + 1;
-		nbDigitalVideoDisc += 1;
+		this.id = nbMedia + 1;
+		nbMedia += 1;
 	}
 	public DigitalVideoDisc(String title, String category, float cost) {
 		super();
@@ -16,8 +16,8 @@ public class DigitalVideoDisc {
 		this.category = category;
 		this.cost = cost;
 		this.dateAdded = LocalDate.now() ;
-		this.id = nbDigitalVideoDisc + 1;
-		nbDigitalVideoDisc += 1;
+		this.id = nbMedia + 1;
+		nbMedia += 1;
 	}
 	public DigitalVideoDisc(String title, String category, String director, float cost) {
 		super();
@@ -26,8 +26,8 @@ public class DigitalVideoDisc {
 		this.director = director;
 		this.cost = cost;
 		this.dateAdded = LocalDate.now() ;
-		this.id = nbDigitalVideoDisc + 1;
-		nbDigitalVideoDisc += 1;
+		this.id = nbMedia + 1;
+		nbMedia += 1;
 	}
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
 		super();
@@ -37,20 +37,18 @@ public class DigitalVideoDisc {
 		this.length = length;
 		this.cost = cost;
 		this.dateAdded = LocalDate.now() ;
-		this.id = nbDigitalVideoDisc + 1;
-		nbDigitalVideoDisc += 1;
+		this.id = nbMedia + 1;
+		nbMedia += 1;
 	}
 	public String getDirector() {
 		return director;
 	}
-	public int getLength() {
+	public float getLength() {
 		return length;
 	}
 	private String director;
 	private int length;
-	private LocalDate dateAdded;
 
-	private static int nbDigitalVideoDisc = 0;
 	public String toString() {
 		return "DVD - " +title + " - " + category + " - " + director +" - " +length +": "+cost +"$";
 	}
@@ -60,5 +58,11 @@ public class DigitalVideoDisc {
 		}else {
 			return false;
 		}
+	}
+	
+	//playable
+	public void play() {
+		System.out.println("Playing DVD: " + this.getTitle());
+		System.out.println("DVD length: " + this.getLength());
 	}
 }

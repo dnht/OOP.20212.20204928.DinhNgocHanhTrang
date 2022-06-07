@@ -1,37 +1,33 @@
 package hust.soict.dsai.aims.store;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import java.util.ArrayList;
+
+import hust.soict.dsai.aims.media.*;
 
 public class Store {
 	public static final int max = 1000;
-	public DigitalVideoDisc itemsInStore[] = new DigitalVideoDisc[max];
+	public ArrayList<Media> itemsInStore = new
+			ArrayList<Media>(max);
 	public int qtyAvailable = 0; 
 	
-	//add DVD
-	public void addDVD(DigitalVideoDisc disc){
+	//add media
+	public void addMedia(Media md1){ //add bang doi tuong
 		if (qtyAvailable == max ) {
 			System.out.println("The store is almost full");
 		}
 		else {
-			itemsInStore[qtyAvailable] = disc;
-			System.out.println("The disc has been added");
+			itemsInStore.add(md1);
 			qtyAvailable++;
 		}
-		
 	}
-	//remove DVD
-	public void removeDVD(DigitalVideoDisc disc) {
-		int count = 0;
-		for (int i = 0; i < qtyAvailable; i++) {
-			if (itemsInStore[i].equals(disc)) {
-				count ++;
-				itemsInStore[i] = itemsInStore[i+1];
-				for (int j = i+1; j < qtyAvailable; j++) {
-					itemsInStore[j] = itemsInStore[j+1];
-				}
-			}
+	//remove media
+	public void removeMedia(Media md) {
+		if (itemsInStore.contains(md)) {
+			itemsInStore.remove(md);
+			qtyAvailable--;
 		}
-		System.out.println("The disc has been removed");
-		qtyAvailable -= count;
+		else {
+			System.out.println(md +"is not in the store");
+		}
 	}
 	
 }
