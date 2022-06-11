@@ -2,7 +2,9 @@ package hust.soict.dsai.aims;
 import hust.soict.dsai.aims.cart.*;
 import hust.soict.dsai.aims.store.*;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
-import hust.soict.dsai.aims.media.Media;
+import hust.soict.dsai.aims.media.*;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Aims {
@@ -166,6 +168,19 @@ public class Aims {
 		
 		cart.itemsOrdered.clear();
 		cart.qtyOrdered = 0;
+	}
+	//play media if playable
+	public static void Play(ArrayList list) {
+		Scanner input = new Scanner (System.in);
+		System.out.println("Please enter the ID of the Media you want to play: ");
+		int ID = input.nextInt();
+		if (list.get(ID - 1) instanceof Book) {
+			System.out.println("Cannot play a book!");
+		}else if (list.get(ID - 1) instanceof DigitalVideoDisc) {
+			((DigitalVideoDisc) list.get(ID - 1)).play();
+		}else if (list.get(ID - 1) instanceof CompactDisc) {
+			((CompactDisc) list.get(ID - 1)).play();
+		}
 	}
 	
 }
