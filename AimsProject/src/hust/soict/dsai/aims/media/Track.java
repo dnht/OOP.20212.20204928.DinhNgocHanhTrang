@@ -1,6 +1,6 @@
 package hust.soict.dsai.aims.media;
 
-public class Track implements Playable {
+public class Track implements Playable, Comparable<Track>{
 
 	public Track() {
 		// TODO Auto-generated constructor stub
@@ -31,6 +31,34 @@ public class Track implements Playable {
 		if (this.getLength()<= 0) {
 			System.out.println("This track cannot be played");
 		}
+	}
+	//override equals
+	@Override
+	public boolean equals(Object o) {
+		if (o == this) {
+			return true;
+		}
+		if (!(o instanceof Track)) {
+			return false;
+		}
+		Track other = (Track) o;
+		boolean titleEquals = (this.title == null && other.title == null)
+				|| (this.title != null && this.title.equals(other.title));
+		return this.length == other.length && titleEquals;
+				
+	}
+	// compareTo()
+	public int compareTo(Track o) {
+		if (this.title.compareTo(o.title) == 0) {
+			if (this.length > o.length) {
+				return 1;
+			}else if (this.length < o.length) {
+				return -1;
+			}else {
+				return 0;
+			}
+		}
+		return this.title.compareTo(o.title);
 	}
 	
 }

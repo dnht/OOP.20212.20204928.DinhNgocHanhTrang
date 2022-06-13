@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Book extends Media {
+public class Book extends Media{
 	private List<String> authors = new ArrayList<String>();
 	// author
 	public void addAuthor(String authorName) {
@@ -23,6 +23,7 @@ public class Book extends Media {
 			System.out.print(authorName +" is not in the list");
 		}
 	}
+	private String content;
 	// constructor
 	public Book(String title, String category, float cost) {
 		super();
@@ -32,5 +33,9 @@ public class Book extends Media {
 		this.dateAdded = LocalDate.now() ;
 		this.id = nbMedia + 1;
 		nbMedia += 1;
+	}
+	//toString()
+	public String toString(){
+		return "Book - "+title +" - "+category+"\nAuthors: " + authors.toString();
 	}
 }

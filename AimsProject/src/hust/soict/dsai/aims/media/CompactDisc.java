@@ -2,13 +2,14 @@ package hust.soict.dsai.aims.media;
 
 import java.util.ArrayList;
 
-public class CompactDisc extends Disc implements Playable {
+public class CompactDisc extends Disc implements Playable{
 
 	public CompactDisc() {
 		// TODO Auto-generated constructor stub
 	}
 	private String artist;
 	private ArrayList<Track> tracks = new ArrayList<Track>();
+	private String director;
 	
 	public String getArtist() {
 		return this.artist;
@@ -55,5 +56,9 @@ public class CompactDisc extends Disc implements Playable {
 		}
 		System.out.println("The end!");
 	}
-	
+	// toString
+	public String toString() {
+		return "CD - " + title +" - "+category+" - "+artist+" - "+director +" - "+cost
+				+"\nTrack-list:\n"+tracks.toString();
+	}
 }
