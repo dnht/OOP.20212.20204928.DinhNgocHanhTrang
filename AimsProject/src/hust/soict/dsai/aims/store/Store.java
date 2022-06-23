@@ -29,5 +29,9 @@ public class Store {
 			System.out.println(md +"is not in the store");
 		}
 	}
+	public ArrayList<Media> getItemsInStore() {
+		// TODO Auto-generated method stub
+		return itemsInStore;
+	}
 	
 }

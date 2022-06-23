@@ -1,10 +1,12 @@
 package hust.soict.dsai.swing;
 
-import java.awt.*;
+import java.awt.Container;
+import java.awt.GridLayout;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.Scanner;
 
-public class SwingAccumulator {
+public class SwingAccumulator extends JFrame {
 	private JTextField tfInput;
 	private JTextField tfOutput;
 	private int sum = 0;
@@ -15,7 +17,10 @@ public class SwingAccumulator {
 		cp.setLayout(new GridLayout(2,2));
 		
 		cp.add(new JLabel("Enter an Integer: "));
+		
 		tfInput = new JTextField(10);
+		cp.add(tfInput);
+		tfInput.addActionListener(new TFInputListener());
 		
 		cp.add(new JLabel("The Accumulated Sum is: "));
 		
@@ -30,6 +35,8 @@ public class SwingAccumulator {
 
 	public static void main (String[] args ) {
 		new SwingAccumulator();
+		//UIManager.setLookAndFeel();
+		//SwingUtilities.updateComponentTreeUI();
 	}
 	
 	private class TFInputListener implements ActionListener{
@@ -41,4 +48,6 @@ public class SwingAccumulator {
 			tfOutput.setText(sum + "");
 		}
 	}
+	
+	
 }
