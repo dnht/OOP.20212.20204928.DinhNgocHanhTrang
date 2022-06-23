@@ -1,3 +1,4 @@
+/*
 package hust.soict.dsai.aims.media;
 import java.util.Collections;
 import java.util.Comparator;
@@ -21,3 +22,4 @@ public class MediaComparatorByTitleCost implements Comparator<Media> {
 		super();
 	}
 }
+*/
