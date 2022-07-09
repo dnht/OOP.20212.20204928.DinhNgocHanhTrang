@@ -1,11 +1,13 @@
 package hust.soict.dsai.aims.cart;
 import hust.soict.dsai.aims.media.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
-	public ArrayList<Media> itemsOrdered = new
-			ArrayList<Media>(MAX_NUMBERS_ORDERED);
+	public ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 	public int qtyOrdered = 0;
 	
 	public float totalCost() {
@@ -196,6 +198,10 @@ public class Cart {
 			System.out.println ("You should have at least 5 items in the cart to have a lucky item");
 			return null;
 		}
+	}
+	public Object getItemsOrdered() {
+		// TODO Auto-generated method stub
+		return itemsOrdered;
 	}
 	
 	

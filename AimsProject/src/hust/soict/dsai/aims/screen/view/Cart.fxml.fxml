@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" />
+         </BorderPane.margin>
+         <children>
+            <Label prefHeight="106.0" prefWidth="91.0" text="Cart" textFill="#004cff">
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Label>
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#btnViewStorePressed" prefHeight="50.0" prefWidth="100.0" text="View Store" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" />
+         </BorderPane.margin>
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <Label prefHeight="20.0" prefWidth="44.0" text="Filter">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField />
+                  <RadioButton mnemonicParsing="false" selected="true" text="By ID">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="filterCategory" />
+                     </toggleGroup>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="By Title" toggleGroup="$filterCategory">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </RadioButton>
+               </children>
+            </HBox>
+            <TableView fx:id="tblMedia" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="colMediaId" prefWidth="141.0" text="ID " />
+                <TableColumn fx:id="colMediaTitle" prefWidth="336.0" text="Title" />
+                  <TableColumn fx:id="colMediaCategory" minWidth="0.0" prefWidth="323.0" text="Category" />
+                  <TableColumn fx:id="colMediaCost" minWidth="0.0" prefWidth="183.0" text="Cost" />
+              </columns>
+            </TableView>
+            <HBox alignment="TOP_RIGHT" prefHeight="54.0" prefWidth="984.0" spacing="20.0">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <children>
+                  <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#btnPlayPressed" prefWidth="73.0" text="Play" />
+                  <Button fx:id="btnRemove" mnemonicParsing="false" onAction="#btnRemovePressed" prefHeight="31.0" prefWidth="78.0" text="Remove" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <VBox alignment="TOP_CENTER" minHeight="200.0" prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <Label text="Total">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="costLabel" text="0 $">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" style="-fx-background-color: #004cff;" text="Place Order" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>
